@@ -7,36 +7,30 @@
 
 ## Project Description <a name="description"></a>
 
+The starter project given by Udacity has some HTML and CSS styling to display a static version of the Landing Page project. Main project task is to convert the static version of the project into an interactive one. This requires modifying the HTML and CSS files, but primarily the JavaScript file.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The main app's functionality can be found in the `js/app.js` and additional `js/pushIn.js` file is
+used to simulate a dolly-in or push-in effect on a div element.
 
-To get started, open `js/app.js` and start building out the app's functionality
+To animate a scrolling to anchor links, I used the "smooth scroll" plugin using jsDelivr CDN.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+More info on those functions can be found following the links given in the corresponding references below.  
 
 
 ## Project Components <a name="components"></a>
 
-Main components of this project are the images, HTML, and CSS files used to design
-the Website's Front End. There are two HTML files related to:
+Main components of this project are the `index.html`, and `style.css` files used to design
+the Website's static Front End and The main app's functionality can be found in the `app.js` file.
 <ul>
-<li> The Blog Website: index.html </li>
-<li> an example Blog Post: blog-post.html </li>
-</ul>
-As well as the related CSS files for responsive layout and styling:
-
-<ul>
-<li> layout.css </li>
-<li> style.css </li>
-<li> blog-post.css </li>
-<li> post-style.css </li>
+<li> The Blog Website structure: index.html </li>
+<li> Styling: style.css </li>
+<li> Dynamic functionality: app.js </li>
 </ul>
 
 ## Instructions<a name="instructions"></a>
 
-From the main blog website, click on <strong>Read More</strong> and the blog Post
-template will show up, from there you can come back to the main page by clicking
-on the <strong>HOME</strong> button.
+When initially loading the page, a blue background with the page content and dynamically created navigation bar will show off.
+No section is highlighted at this point. Active sections in view and related links are highlighted when scrolling or after clicking on the corresponding section reference on the navigation bar to clearly show the current active section. Paragraph's text will also change with active sections and scroll actions to give an illusion of perspective as objects grow/shrink. A floating button to smooth scroll back to the top of the page becomes visible when reaching section 3 and 4 and will move to the footer when scrolling up to the end. The scroll effect when pressing the button follows an Ease-In-Out pattern in which gradually increases in speed, peaks, and then gradually slows down. Once reaching the top of the page, no section will be highlighted and the text inside the paragraphs will shrink.
 
 ## Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
