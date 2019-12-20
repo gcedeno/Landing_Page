@@ -171,8 +171,8 @@ section:nth-of-type(odd) .landing__container::before {
     background: rgba(255, 255, 255, 0.187);
     position: absolute;
     z-index: -5;
-    width: 20vh;
-    height: 20vh;
+    width: 30vh;
+    height: 30vh;
     border-radius: 50%;
     opacity: 0;
     transition: ease 0.5s all;
@@ -186,8 +186,8 @@ section:nth-of-type(even) .landing__container::before {
     top: 3em;
     right: 3em;
     z-index: -5;
-    width: 10vh;
-    height: 10vh;
+    width: 25vh;
+    height: 25vh;
     border-radius: 50%;
     opacity: 0;
     transition: ease 0.5s all;
@@ -198,11 +198,11 @@ section:nth-of-type(3n) .landing__container::after {
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
     position: absolute;
-    right: 0;
+    right: 5em;
     bottom: 0;
     z-index: -5;
-    width: 10vh;
-    height: 10vh;
+    width: 20vh;
+    height: 20vh;
     border-radius: 50%;
     opacity: 0;
     transition: ease 0.5s all;
@@ -214,7 +214,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
     background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
     position: absolute;
     right: 20vw;
-    bottom: -5em;
+    bottom: 0em;
     z-index: -5;
     width: 15vh;
     height: 15vh;
@@ -228,7 +228,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.your-active-class {
-    background: rgb(0, 0, 0);
+    background: rgb(1, 10, 20);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
