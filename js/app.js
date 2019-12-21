@@ -15,9 +15,8 @@
 //defining event listeners
 window.addEventListener("scroll", (event) => {
     highlight();
-    updateDistinguishedSection();
     checkForScrollButton();
-});
+    });
 /*Builds the Navigation Bar when loading the page*/
 document.addEventListener('DOMContentLoaded', (event) => {
     buildNav();
@@ -50,7 +49,7 @@ function isElementInViewport(el){
     // Only completely visible elements return true:
     const isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
     return isVisible;
-};
+    };
 
 /*Function that reacts to the event listener when scrolling */
 function checkForScrollButton(){
@@ -60,24 +59,15 @@ function checkForScrollButton(){
     /* If the scroll value is greater than the window height,
     then change the class to the scroll-to-top button to visualize it */
     if (y > 0) {
-        scrollToTopButton.className = "show";
+        scrollBack.className = "show";
       }
     else {
-        scrollToTopButton.className = "hide";
+        scrollBack.className = "hide";
     }
-};
+  };
 
 // Add class 'active' to section when near top of viewport
-function updateDistinguishedSection(){
-    for (const landingPgSection of landingPgSections){
-        if (isElementInViewport(landingPgSection)){
-            landingPgSection.classList.add("your-active-class");
-        }
-        else {
-            landingPgSection.classList.remove("your-active-class");
-        }
-    }
-};
+
 /**********************************************/
 /**
  * End Helper Functions
@@ -88,23 +78,23 @@ function updateDistinguishedSection(){
 // building the Navigation Bar
 function buildNav() {
   for (let i = 0; i < sections.length; i++) {
-/* exttracting text content for nav items and id for anchors,
- creating an array containing each section for further use:*/
+    /* exttracting text content for nav items and id for anchors,
+    creating an array containing each section for further use:*/
     let itemText = sections[i].getAttribute('data-nav');
     let itemId = sections[i].getAttribute('id');
     sectionList[i] = sections[i];
-//creating the list items and anchors for the Navbar
+    //creating the list items and anchors for the Navbar
     nameListItem[i] = document.createElement('li');
     let nameListItemA = document.createElement('a');
     nameListItemA.setAttribute('href', '#' + itemId);
-//appending text to anchors, and each li to ul:
+    //appending text to anchors, and each li to ul:
     nameListItemA.appendChild(document.createTextNode(itemText));
     nameListItem[i].appendChild(nameListItemA);
     navList.appendChild(nameListItem[i]);
-//adding the menu_link class from the css styling file:
+    //adding the menu_link class from the css styling file:
     nameListItemA.className = 'menu__link';
-  }
-};
+    }
+    };
 // Scroll to section on link click
 // Set sections as active
 // Add class 'active' to section when near top of viewport
@@ -112,7 +102,7 @@ function buildNav() {
 function highlight (e) {
   for(let i = 0; i < sectionList.length; i++){
     let containsActiveClass = sectionList[i].classList.contains('your-active-class');
-//changes active class based on current viewport:
+    //changes active class based on current viewport:
     if (!containsActiveClass) {
        if(window.scrollY >= sectionList[i].offsetTop - 150 && window.scrollY <= sectionList[i].offsetTop + 500) {
         sectionList[i].className = 'your-active-class';
@@ -122,18 +112,15 @@ function highlight (e) {
       if(window.scrollY < sectionList[i].offsetTop - 150 || window.scrollY > sectionList[i].offsetTop + 500) {
        sectionList[i].classList.remove('your-active-class');
        nameListItem[i].classList.remove('link_active');
-     }
-    }
-  };
+     }}};
 
 // Scroll to anchor ID using scrollTO event
 //  test user location, when getting to the bottom of the page insert "scroll back to top" buttonn
   if( window.scrollY > document.querySelector('main').offsetHeight - 1800) {
-    scrollBack.style.display = 'block';
-  }else {
-    scrollBack.style.display = 'none';
-  }
-};
+    scrollBack.style.display = 'block';}
+  else {
+    scrollBack.style.display = 'none';}
+  };
 /**
  * End Main Functions
  */
@@ -150,4 +137,4 @@ const scroll = new SmoothScroll('a[href*="#"]', {
 		// return <your formulate with time as a multiplier>
 		return time < 0.2 ? 10 * time * time : -1 + (4 - 2 * time) * time;
 	}
-});
+  });
