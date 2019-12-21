@@ -81,9 +81,9 @@ section {
     text-decoration: none;
     color: #000;
 }
-
+/*highlight active link in navbar__menu */
 .link_active {
-  background: #ccf;
+  background: #3c5;
 }
 /***********************/
 .navbar__menu .menu__link:hover {

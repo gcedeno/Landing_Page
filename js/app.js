@@ -13,16 +13,16 @@
  *
 */
 //defining event listeners
-// window.addEventListener('scroll', highlight);
 window.addEventListener("scroll", (event) => {
     highlight();
     updateDistinguishedSection();
     checkForScrollButton();
 });
+/*Builds the Navigation Bar when loading the page*/
 document.addEventListener('DOMContentLoaded', (event) => {
     buildNav();
-    // scrollSmoothly();
-});
+    highlight();
+    });
 /**
  * Define Global Variables
  *
@@ -39,36 +39,33 @@ let sectionList = [];
  *
 */
 /**********************************************/
+/*Function to test if a DOM element is visible in the current viewport */
 function isElementInViewport(el){
+    /*The Element.getBoundingClientRect() method returns the size of an element and
+    its position relative to the viewport. */
     let rect = el.getBoundingClientRect();
     const elemTop = rect.top;
     const elemBottom = rect.bottom;
 
     // Only completely visible elements return true:
     const isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
-    // Partially visible elements return true:
-    // const isVisible = elemTop < window.innerHeight && elemBottom >= 0;
     return isVisible;
-}
+};
 
-/**
- * End Helper Functions
- * Begin Main Functions
- *
- */
-
+/*Function that reacts to the event listener when scrolling */
 function checkForScrollButton(){
-    // Get the current scroll value
+    // Getting the current scroll value
     let y = window.scrollY;
 
-    // If the scroll value is greater than the window height, let's add a class to the scroll-to-top button to show it!
+    /* If the scroll value is greater than the window height,
+    then change the class to the scroll-to-top button to visualize it */
     if (y > 0) {
         scrollToTopButton.className = "show";
       }
     else {
         scrollToTopButton.className = "hide";
     }
-}
+};
 
 // Add class 'active' to section when near top of viewport
 function updateDistinguishedSection(){
@@ -88,36 +85,34 @@ function updateDistinguishedSection(){
  *
 */
 
-// build the nav
+// building the Navigation Bar
 function buildNav() {
   for (let i = 0; i < sections.length; i++) {
-// variables here are used to get the (1)text content for nav items and (2)id for anchors, also (3)added each section to Array for further use:
+/* exttracting text content for nav items and id for anchors,
+ creating an array containing each section for further use:*/
     let itemText = sections[i].getAttribute('data-nav');
     let itemId = sections[i].getAttribute('id');
     sectionList[i] = sections[i];
-//creating (1)list items and (2)anchors and (3)setting the value, got from upper variable as href value:
+//creating the list items and anchors for the Navbar
     nameListItem[i] = document.createElement('li');
     let nameListItemA = document.createElement('a');
     nameListItemA.setAttribute('href', '#' + itemId);
-//appending (1)text from top variable to a, (2)appending a to li, and (3)li to ul:
+//appending text to anchors, and each li to ul:
     nameListItemA.appendChild(document.createTextNode(itemText));
     nameListItem[i].appendChild(nameListItemA);
     navList.appendChild(nameListItem[i]);
-//adding class that I found in css file:
+//adding the menu_link class from the css styling file:
     nameListItemA.className = 'menu__link';
   }
-}
-
-// buildNav();
-
+};
+// Scroll to section on link click
+// Set sections as active
 // Add class 'active' to section when near top of viewport
 // function changes styling of sections when active
 function highlight (e) {
-//loop through section list stored in an array sectionCollection;
   for(let i = 0; i < sectionList.length; i++){
-//checks if section has active class and saves value as a boolian:
     let containsActiveClass = sectionList[i].classList.contains('your-active-class');
-//changes active class based on position of user screen view:
+//changes active class based on current viewport:
     if (!containsActiveClass) {
        if(window.scrollY >= sectionList[i].offsetTop - 150 && window.scrollY <= sectionList[i].offsetTop + 500) {
         sectionList[i].className = 'your-active-class';
@@ -129,10 +124,10 @@ function highlight (e) {
        nameListItem[i].classList.remove('link_active');
      }
     }
-  }
+  };
 
 // Scroll to anchor ID using scrollTO event
-//  test where the user is located and inserting "back to top" button to the screen
+//  test user location, when getting to the bottom of the page insert "scroll back to top" buttonn
   if( window.scrollY > document.querySelector('main').offsetHeight - 1800) {
     scrollBack.style.display = 'block';
   }else {
@@ -141,15 +136,8 @@ function highlight (e) {
 };
 /**
  * End Main Functions
- * Begin Events
- *
-*/
+ */
 
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
 // added code from https://github.com/cferdinandi/smooth-scroll to get a scroll effect
 // const scroll = new SmoothScroll('a[href*="#"]', {
 // });
